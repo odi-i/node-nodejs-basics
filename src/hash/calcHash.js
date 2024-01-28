@@ -5,9 +5,8 @@ const HASH_METHOD = 'sha256'
 const FILE_PATH = new URL('files/fileToCalculateHashFor.txt', import.meta.url);
 
 const calculateHash = async () => {
-  console.log(FILE_PATH)
-
   const input = createReadStream(FILE_PATH);
+
   input.on('readable', () => {
     const hash = createHash(HASH_METHOD);
     const data = input.read();
